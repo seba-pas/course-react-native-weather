@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import store from "./utils/redux/store";
 
 import "react-native-gesture-handler";
-import Tabs from "./navigation/Tabs";
+
 import StackNav from "./navigation/StackNav";
 
 export default function App() {

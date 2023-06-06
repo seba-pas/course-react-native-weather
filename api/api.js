@@ -10,7 +10,7 @@ export async function getCity(city) {
       // Aquí puedes manejar la respuesta de la solicitud
    ;
       const data = response.data
-      console.log(data.name)
+      console.log('esto es data', data)
       const weather = {
         temp: data?.main?.temp,
         min: data?.main?.temp_min,
@@ -21,6 +21,25 @@ export async function getCity(city) {
       }
 
       return weather;
+    })
+    .catch((error) => {
+      // Aquí puedes manejar los errores de la solicitud
+      console.log(error);
+      return 'City Not Found'
+    });
+}
+
+export async function getCityDetails(city) {
+  const apiKey = "6a347f1923f771d042c7869371ca5501";  
+  const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+ return await axios
+    .get(apiUrl)
+    .then((response) => {
+      // Aquí puedes manejar la respuesta de la solicitud
+   ;
+      const data = response.data
+      return data
     })
     .catch((error) => {
       // Aquí puedes manejar los errores de la solicitud

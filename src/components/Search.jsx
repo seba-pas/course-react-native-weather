@@ -24,13 +24,11 @@ useEffect(() => {
 },[])
 
   async function handlePress() {
-    //city
-   
+    //city   
     const response = await getCity(cityName);
     if (!response?.icon) {
       Alert.alert("Sorry we couldn't find yout city");
-    }
-   
+    } 
   
     
      navigation.navigate('card', {searchedCity: response})

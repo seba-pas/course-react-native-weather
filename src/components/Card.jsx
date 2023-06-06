@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import { useRoute, useFocusEffect } from "@react-navigation/native";
+import { useRoute, useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCity } from "../../utils/redux/citySlice";
@@ -16,24 +16,22 @@ const Card = () => {
   const [loading, setLoading] = useState(true);
   const [city, setCity] = useState({});
   const route = useRoute();
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigation = useNavigation()
 
-function handleAdd(){
+  function handleAdd() {
     dispatch(addCity(city));
-}
+  }
 
+  function handleBack(){
+    navigation.goBack()
+  }
 
   useEffect(() => {
-    // if (route?.params?.searchedCity) {
-    //   setLoading(false);
-    // }
-    // if(icon){
-
-    // }
     async function loadCard() {
       const parent = await route?.params.searchedCity;
       setCity(parent);
-      console.log("2", parent);
+      
       setLoading(false);
     }
 
@@ -115,6 +113,21 @@ function handleAdd(){
             onPress={handleAdd}
           >
             <Text style={{ color: "white" }}>Add To Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "steelblue",
+              width: 150,
+              height: 40,
+              borderRadius: 10,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 20,
+            }}
+            onPress={handleBack}
+            
+          >
+            <Text style={{ color: "white" }}>Go Back</Text>
           </TouchableOpacity>
         </View>
       )}
