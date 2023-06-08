@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
 
-const CardView = ({name, min,max, temp, weather, icon}) => {
-    var URL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-  return (
+const CardView = ({ name, min, max, temp, weather, icon }) => {
+
+  //.toFixed(0)
+  //Math.round()
+
   
+  var URL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  return (
     <View style={styles.cardContainer}>
       <View style={{ flexDirection: "row", padding: 5 }}>
         <Image
@@ -28,9 +32,7 @@ const CardView = ({name, min,max, temp, weather, icon}) => {
       </View>
 
       <View style={{ marginTop: 20, marginLeft: 10 }}>
-        <Text
-          style={{ fontSize: 25, alignSelf: "center", marginBottom: 10 }}
-        >
+        <Text style={{ fontSize: 25, alignSelf: "center", marginBottom: 10 }}>
           {name}
         </Text>
         <View style={{ flexDirection: "row" }}>
@@ -48,36 +50,33 @@ const CardView = ({name, min,max, temp, weather, icon}) => {
         </View>
       </View>
     </View>
-  
- 
-  )
-}
+  );
+};
 
-export default CardView
+export default CardView;
 
 const styles = StyleSheet.create({
-    cardContainer: {
-        marginTop:20,
-      width: '80%',
-     
-padding: 10,
-        backgroundColor: "white",
-        borderRadius: 20,
-        shadowColor: "#1e374b",
-        shadowOffset: {
-          width: 2,
-          height: 3,
-        },
-        elevation: 20,
-      },
-      label: {
-        marginLeft: 20,
-        marginRight: 10,
-        fontWeight: "bold",
-        fontSize: 16,
-      },
-      data: {
-        fontSize: 16,
-      },
+  cardContainer: {
+    marginTop: 20,
+    width: "80%",
 
-})
+    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 20,
+    shadowColor: "#1e374b",
+    shadowOffset: {
+      width: 2,
+      height: 3,
+    },
+    elevation: 20,
+  },
+  label: {
+    marginLeft: 20,
+    marginRight: 10,
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  data: {
+    fontSize: 16,
+  },
+});

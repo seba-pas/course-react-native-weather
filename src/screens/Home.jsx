@@ -1,8 +1,9 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
 import React, {useState} from "react";
 import Header from "../components/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import IMAGE from '../../assets/pnghome.png'
 
 import CardView from "../components/CardView";
 import { useSelector } from "react-redux";
@@ -41,9 +42,10 @@ const Home = () => {
                 />
               );
             })}
-          {cities?.length == 0 && (
+          {!cities && (
             <View style={{ justifyContent: "center", alignItems: "center" }}>
-              <Text>You dont have cities added to your Home page!</Text>
+              <Image source={IMAGE} style={{height: 150, width: 150, marginTop: 130}} />
+              <Text style={{marginTop: 60, fontWeight: 'bold', fontSize: 14}}>You dont have cities added to your Home page!</Text>
             </View>
           )}
         </View>
