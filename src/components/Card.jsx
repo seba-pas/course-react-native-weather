@@ -19,6 +19,12 @@ const Card = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation()
 
+
+
+const temp = Math.round(city?.temp)
+const min = Math.round(city?.min)
+const max = Math.round(city?.max)
+
   function handleAdd() {
     dispatch(addCity(city));
   }
@@ -75,7 +81,7 @@ const Card = () => {
                   marginLeft: 30,
                 }}
               >
-                {city?.temp}
+                {temp}°C
               </Text>
             </View>
 
@@ -92,11 +98,11 @@ const Card = () => {
 
               <View style={{ flexDirection: "row" }}>
                 <Text style={styles.label}>Min:</Text>
-                <Text style={styles.data}>{city?.min}</Text>
+                <Text style={styles.data}>{min}°C</Text>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <Text style={styles.label}>Max:</Text>
-                <Text style={styles.data}>{city?.max}</Text>
+                <Text style={styles.data}>{max}°C</Text>
               </View>
             </View>
           </View>

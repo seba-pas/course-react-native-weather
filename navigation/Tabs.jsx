@@ -43,7 +43,19 @@ const Tabs = () => {
       <Tab.Screen
         name="search"
         component={Search}
-        options={{ headerShown: false }}
+        options={{ 
+          headerShown: false,
+          tabBarIcon: ({focused}) => (
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+               <Feather
+                  name="search"
+                  size={20}
+                  color={focused ? "white" : "steelblue"}
+                />
+              <Text style={focused ? styles.tabLabelF : styles.tabLabel}>Search</Text>
+            </View>
+          )
+         }}
       />
     </Tab.Navigator>
   );

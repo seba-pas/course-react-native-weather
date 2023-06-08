@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, {useState} from "react";
 import Header from "../components/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,7 +9,7 @@ import CardView from "../components/CardView";
 import { useSelector } from "react-redux";
 
 const Home = () => {
- const cities = useSelector((state) => state.cities)
+ const cities = useSelector((state) => state.city)
   const [counter, setCounter] = useState(0);
 
 
